@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
         chrome.storage.sync.get("URLs", function(urlsObject) {
             if (urlsObject !== undefined) {
                 urlsObject["URLs"].forEach(function(currentUrl) {
-                    window.open(currentUrl, "_blank");
+                    chrome.tabs.create({url: currentUrl});
                 });
             } else {
                 alert('No URLs! Please add at least one in "Add URL" menu.');

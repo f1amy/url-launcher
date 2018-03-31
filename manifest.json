@@ -8,5 +8,5 @@
         "default_icon": "hello_extensions.png",
         "default_popup": "index.html"
     },
-    "permissions": ["activeTab", "storage"]
+    "permissions": ["tabs", "storage"]
 }

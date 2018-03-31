@@ -6,16 +6,17 @@ document.addEventListener("DOMContentLoaded", function() {
     */
     document.getElementById("add-url").onclick = function() {
         // do we need a check for good url?
-        // need checking for repetitions
 
         let url = document.getElementById("url").value;
 
         chrome.storage.sync.get("URLs", function(urlsObject) {
-            if (urlsObject !== undefined) {
+            if (urlsObject["URLs"] !== undefined) {
                 if (urlsObject["URLs"].indexOf(url) === -1) {
                     urlsObject["URLs"].push(url);
+                    alert('Your URL has been added!');
                 } else {
-                    alert("URL already added!");
+                    alert("URL has already been added!");
+                    return;
                 }
             } else {
                 urlsObject = {
@@ -24,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             chrome.storage.sync.set(urlsObject);
+
+            document.getElementById('url').value = "https://";
         });
     };
 });
