@@ -1,4 +1,64 @@
 body {
     width: 300px;
-    height: 150px;
+    height: 200px;
+}
+
+button {
+    color: white;
+    background-color: #4caf50;
+    user-select: none;
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:not(:disabled):hover {
+    color: #2196f3;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:disabled {
+    background-color: green;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #2196f3;
+    color: white;
+    margin-bottom: 15px;
+    opacity: 1;
+    transition: linear opacity 0.6s;
+}
+
+.alert-warning {
+    background-color: #ff9800;
+}
+
+.alert-danger {
+    background-color: #f44336;
+}
+
+.alert-success {
+    background-color: #4caf50;
+}
+
+.delete-alert-button {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.delete-alert-button:hover {
+    color: black;
 }
