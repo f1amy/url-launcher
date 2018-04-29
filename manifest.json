@@ -3,9 +3,9 @@
     "name": "URL Launcher",
     "description": "Open all your favorite URLs with one click!",
     "version": "1.0.0",
-    "icons": { "16": "hello_extensions.png" },
+    "icons": { "16": "assets/icons/app_icon.png" },
     "browser_action": {
-        "default_icon": "hello_extensions.png",
+        "default_icon": "assets/icons/app_icon.png",
         "default_popup": "index.html",
         "default_title": "URL Launcher"
     },
