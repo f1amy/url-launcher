@@ -1,11 +1,14 @@
 "use strict";
 
+/*
 document.getElementById("add-url-button").onclick = function() {
     clearAlerts();
     document.getElementById("main-page").style.display = "none";
     document.getElementById("add-url-page").style.display = "block";
 };
+*/
 
+/*
 document.getElementById("urls-button").onclick = function() {
     clearAlerts();
     document.getElementById("main-page").style.display = "none";
@@ -45,6 +48,7 @@ document.getElementById("urls-button").onclick = function() {
 
     toggleDeleteButton();
 };
+*/
 
 document.getElementById("open-urls-button").onclick = function() {
     chrome.storage.sync.get("URLs", function(urlsObject) {
@@ -63,6 +67,7 @@ document.getElementById("open-urls-button").onclick = function() {
     });
 };
 
+/*
 Array.from(document.getElementsByClassName("back-button")).forEach(function(
     button
 ) {
@@ -71,7 +76,7 @@ Array.from(document.getElementsByClassName("back-button")).forEach(function(
         getActivePage().style.display = "none";
         document.getElementById("main-page").style.display = "block";
     };
-});
+});*/
 
 function addUrl(urlString) {
     let url;
@@ -138,18 +143,16 @@ document.getElementById("url").onkeyup = function(event) {
 function toggleDeleteButton() {
     const checkboxes = Array.from(
         document.querySelectorAll(
-            "#urls-page #url-list li input[type='checkbox']"
+            "#urls-list-tab-content #url-list li input[type='checkbox']"
         )
     );
 
     let deleteUrlsButton = document.getElementById("delete-urls-button");
 
     if (checkboxes.length > 0) {
-        deleteUrlsButton.disabled = checkboxes.some(
+        deleteUrlsButton.disabled = !checkboxes.some(
             checkbox => checkbox.checked === true
-        )
-            ? false
-            : true;
+        );
     } else {
         deleteUrlsButton.disabled = true;
     }
@@ -158,7 +161,7 @@ function toggleDeleteButton() {
 document.getElementById("delete-urls-button").onclick = function() {
     chrome.storage.sync.get("URLs", function(urlsObject) {
         const checkedBoxes = document.querySelectorAll(
-            "#urls-page #url-list li input:checked"
+            "#urls-list-tab-content #url-list li input:checked"
         );
 
         for (const currentBox of checkedBoxes) {
@@ -183,7 +186,7 @@ document.getElementById("delete-urls-button").onclick = function() {
 
 document.getElementById("select-all").onclick = function() {
     const checkboxes = document.querySelectorAll(
-        "#urls-page #url-list li input[type='checkbox']"
+        "#urls-list-tab-content #url-list li input[type='checkbox']"
     );
 
     /* Array.from(
@@ -263,6 +266,7 @@ function createAlert(alertText, alertType) {
     }, 5000);
 }
 
+/*
 function clearAlerts() {
     getActivePage().querySelector(".alert-list").innerHTML = "";
 }
@@ -272,3 +276,72 @@ function getActivePage() {
         div => div.style.display === "block"
     )[0];
 }
+*/
+
+function openTabByName(tabName) {
+    // clearAlerts();
+
+    document
+        .getElementsByClassName("active-tab-link")[0]
+        .classList.remove("active-tab-link");
+    document
+        .getElementsByClassName("active-tab-content")[0]
+        .classList.remove("active-tab-content");
+
+    document.getElementById(`${tabName}-link`).classList.add("active-tab-link");
+    document
+        .getElementById(`${tabName}-content`)
+        .classList.add("active-tab-content");
+}
+
+Array.from(document.getElementsByClassName("tab-link")).forEach(
+    e =>
+        (e.onclick = function() {
+            openTabByName(`${this.id.slice(0, this.id.length - 5)}`);
+        })
+);
+
+document
+    .getElementById("urls-list-tab-link")
+    .addEventListener("onclick", function() {
+        //clearAlerts();
+
+        chrome.storage.sync.get("URLs", function(urlsObject) {
+            if (
+                urlsObject["URLs"] !== undefined &&
+                urlsObject["URLs"].length > 0
+            ) {
+                // TODO: ^ check, refactor
+                for (const currentUrl of urlsObject["URLs"]) {
+                    if (
+                        Array.from(
+                            document.querySelectorAll(
+                                "#urls-list-tab-content #url-list li a"
+                            )
+                        ).every(a => a.href !== currentUrl)
+                    ) {
+                        let li = document.createElement("li");
+
+                        li.innerHTML =
+                            '<label><input type="checkbox">' +
+                            `<a href="${currentUrl}" target="_blank">` +
+                            `${currentUrl}</a> (click)</label>`;
+
+                        document.getElementById("url-list").appendChild(li);
+
+                        document.querySelector(
+                            "#urls-list-tab-content #url-list li:last-child input"
+                        ).onclick = toggleDeleteButton;
+                    }
+                }
+            } else {
+                createAlert(
+                    'No URLs! Please add at least one in "Add URL" menu.',
+                    alertTypeEnum.WARNING
+                );
+                return;
+            }
+        });
+
+        toggleDeleteButton();
+    });

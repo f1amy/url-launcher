@@ -1,9 +1,4 @@
-body {
-    width: 300px;
-    height: 200px;
-}
-
-button {
+/* button {
     color: white;
     background-color: #4caf50;
     user-select: none;
@@ -25,7 +20,7 @@ button:focus {
 
 button:disabled {
     background-color: green;
-}
+} */
 
 .alert {
     padding: 20px;
@@ -61,4 +56,76 @@ button:disabled {
 
 .delete-alert-button:hover {
     color: black;
+}
+
+.clear-fix {
+    clear: both;
+}
+
+body,
+html {
+    margin: 0;
+    font-family: Arial;
+}
+
+body {
+    width: 350px;
+    height: 200px;
+}
+
+#tab-contents {
+    height: 100%;
+    width: 100%;
+}
+
+.tab-link {
+    background-color: white;
+    color: black;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 0px;
+    font-size: 14px;
+    width: 25%;
+}
+
+.tab-link:hover {
+    background-color: #ddd;
+}
+
+.tab-content {
+    overflow: hidden;
+    color: white;
+    display: none;
+    height: 100%;
+    padding: 20px;
+}
+
+.tab-link.active-tab-link {
+    color: white;
+}
+
+.active-tab-content {
+    display: block;
+}
+
+#home-tab-content,
+#home-tab-link.active-tab-link {
+    background-color: #f44336;
+}
+
+#add-url-tab-content,
+#add-url-tab-link.active-tab-link {
+    background-color: #4caf50;
+}
+
+#urls-list-tab-content,
+#urls-list-tab-link.active-tab-link {
+    background-color: #2196f3;
+}
+
+#about-tab-content,
+#about-tab-link.active-tab-link {
+    background-color: #ff5722;
 }

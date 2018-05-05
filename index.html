@@ -9,35 +9,41 @@
 </head>
 
 <body>
-    <div id="main-page" class="page" style="display: block;">
-        <button id="open-urls-button">Open URLs</button>
-        <br>
-        <button id="add-url-button">Add URL</button>
-        <br>
-        <button id="urls-button">List of sites</button>
-        <div class="alert-list"></div>
+    <div id="tab-links">
+        <button class="tab-link active-tab-link" id="home-tab-link">Home</button>
+        <button class="tab-link" id="add-url-tab-link">Add URL</button>
+        <button class="tab-link" id="urls-list-tab-link">URLs list</button>
+        <button class="tab-link" id="about-tab-link">About</button>
+        <div class="clear-fix"></div>
     </div>
-    <div id="add-url-page" class="page" style="display: none;">
-        <button class="back-button">🡸 Back</button>
-        <br>
-        <button id="add-current-tab-url">Add current tab's URL</button>
-        <br>
-        <input type="url" id="url" placeholder="https://www.example.com">
-        <button id="add-url">Add</button>
-        <div class="alert-list"></div>
-    </div>
-    <div id="urls-page" class="page" style="display: none;">
-        <button class="back-button">🡸 Back</button>
-        <button id="select-all">Select all URLs</button>
-        <button id="delete-urls-button" disabled>Delete checked URL(s)</button>
-        <br>
-        <div id="url-list-wrapper">
-            <ol id="url-list"></ol>
+    <div id="tab-contents">
+        <div id="home-tab-content" class="tab-content active-tab-content">
+            <h2>Home</h2>
+            <button id="open-urls-button">Open URLs</button>
+            <div class="alert-list"></div>
         </div>
-        <div class="alert-list"></div>
-    </div>
-    <div id="about-page" class="page" style="display: none;">
-        <p>about blablablalblablablablablablalbalblablblablablablablablablalw</p>
+        <div id="add-url-tab-content" class="tab-content">
+            <h2>Add URL</h2>
+            <button id="add-current-tab-url">Add current tab's URL</button>
+            <br>
+            <input type="url" id="url" placeholder="https://www.example.com">
+            <button id="add-url">Add</button>
+            <div class="alert-list"></div>
+        </div>
+        <div id="urls-list-tab-content" class="tab-content">
+            <h2>URLs list</h2>
+            <button id="select-all">Select all URLs</button>
+            <button id="delete-urls-button" disabled>Delete checked URL(s)</button>
+            <br>
+            <div id="url-list-wrapper">
+                <ol id="url-list"></ol>
+            </div>
+            <div class="alert-list"></div>
+        </div>
+        <div id="about-tab-content" class="tab-content">
+            <h2>About</h2>
+            <p>about blablablablabla</p>
+        </div>
     </div>
 </body>
 
