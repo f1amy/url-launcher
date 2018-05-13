@@ -23,109 +23,109 @@ button:disabled {
 } */
 
 .alert {
-    padding: 20px;
-    background-color: #2196f3;
-    color: white;
-    margin-bottom: 15px;
-    opacity: 1;
-    transition: linear opacity 0.6s;
+  padding: 20px;
+  background-color: #2196f3;
+  color: white;
+  margin-bottom: 15px;
+  opacity: 1;
+  transition: linear opacity 0.6s;
 }
 
 .alert-warning {
-    background-color: #ff9800;
+  background-color: #ff9800;
 }
 
 .alert-danger {
-    background-color: #f44336;
+  background-color: #f44336;
 }
 
 .alert-success {
-    background-color: #4caf50;
+  background-color: #4caf50;
 }
 
 .delete-alert-button {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: color 0.3s;
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .delete-alert-button:hover {
-    color: black;
+  color: black;
 }
 
 .clear-fix {
-    clear: both;
+  clear: both;
 }
 
 body,
 html {
-    margin: 0;
-    font-family: Arial;
+  margin: 0;
+  font-family: Arial;
 }
 
 body {
-    width: 350px;
-    height: 200px;
+  width: 350px;
+  height: 200px;
 }
 
 #tab-contents {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .tab-link {
-    background-color: white;
-    color: black;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 12px 0px;
-    font-size: 14px;
-    width: 25%;
+  background-color: white;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 0px;
+  font-size: 14px;
+  width: 25%;
 }
 
 .tab-link:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .tab-content {
-    overflow: hidden;
-    color: white;
-    display: none;
-    height: 100%;
-    padding: 20px;
+  overflow: hidden;
+  color: white;
+  display: none;
+  height: 100%;
+  padding: 20px;
 }
 
 .tab-link.active-tab-link {
-    color: white;
+  color: white;
 }
 
 .active-tab-content {
-    display: block;
+  display: block;
 }
 
 #home-tab-content,
 #home-tab-link.active-tab-link {
-    background-color: #f44336;
+  background-color: #f44336;
 }
 
 #add-url-tab-content,
 #add-url-tab-link.active-tab-link {
-    background-color: #4caf50;
+  background-color: #4caf50;
 }
 
 #urls-list-tab-content,
 #urls-list-tab-link.active-tab-link {
-    background-color: #2196f3;
+  background-color: #2196f3;
 }
 
 #about-tab-content,
 #about-tab-link.active-tab-link {
-    background-color: #ff5722;
+  background-color: #ff5722;
 }
